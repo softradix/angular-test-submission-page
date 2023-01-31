@@ -67,8 +67,6 @@ export class SubmissionsMapComponent implements OnInit, AfterViewInit {
         animation: google.maps.Animation.DROP,
       },
     })
-
-     console.log(this.markers)
   }
 
   openInfo(marker: MapMarker, content: string) {
