@@ -72,7 +72,7 @@
   /* map */
   .submissions-list {
     width: 460px;
-    max-height: 500px;
+    max-height: calc(100vh - 260px);
     overflow-y: auto;
     @media(max-width:992px){width: 100%;}
   }
@@ -82,7 +82,7 @@
   width: calc((100vw - 500px) - ((100vw - 1500px) / 2));
   position: absolute;
   right: calc(10px - (100vw - 1500px) / 2);
-  height: calc(100% - 10px);
+  height: calc(100%);
   @media(max-width:1550px){
   width: calc((100vw - 507px) - ((100vw - 94vw) / 2));
   right: calc(0px - (100vw - 94vw) / 2);
