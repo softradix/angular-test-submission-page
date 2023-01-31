@@ -1,0 +1,38 @@
+/* navbar */
+.navbar {
+    @media(max-width:992px){
+      padding: 8px 0 !important;
+  
+    }
+  }
+  .nav-link {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  
+  h4 {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--white-text-color);
+  margin-left: 10px;
+  }
+  &.active,
+  &:hover {
+  background-color: var(--primary-bg-dark-color);
+  }
+  }
+  
+  .navbar-expand-lg {
+  .navbar-brand {
+  line-height: normal;
+  }
+  .navbar-nav {
+  flex: 1;
+  justify-content: center;
+  
+  .nav-link {
+  padding: 0px 24px;
+  height: 72px;
+  }
+  }
+  }

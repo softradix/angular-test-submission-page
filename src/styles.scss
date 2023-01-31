@@ -13,45 +13,32 @@
     }
   }
 
-/* navbar */
-.nav-link {
-display: flex;
-align-items: center;
-cursor: pointer;
-
-h4 {
-font-size: 18px;
-font-weight: 500;
-color: var(--white-text-color);
-margin-left: 10px;
-}
-&.active,
-&:hover {
-background-color: var(--primary-bg-dark-color);
-}
-}
-
-.navbar-expand-lg {
-.navbar-brand {
-line-height: normal;
-}
-.navbar-nav {
-flex: 1;
-justify-content: center;
-
-.nav-link {
-padding: 0px 24px;
-height: 72px;
-}
-}
-}
-    
+ 
   /* filters*/
   .filter {
-    padding-bottom: 30px;
+    padding-bottom: 30px;position: relative;
+    form{
+      .form-pr{
+        &:nth-child(2n){
+          @media(max-width:992px){
+            padding-right: 0px;
+          }
+        }
+      }
+    }
   }
 
   /* list view */
+  .addtional-features{
+    @media(max-width:992px){
+      position: absolute;
+    top: -66px;
+    right: 0;
+    }
+    @media(max-width:600px){
+      top: -62px;
+    }
+  }
   .listView-types {
     button {
       height: 48px;
@@ -61,6 +48,9 @@ height: 72px;
       font-weight: 400;
       background: var(--primary-white-color);
       border-radius: var(--primary-border-radius);
+      @media(max-width:992px){
+        width: 44px;height:44px;
+      }
       &:nth-child(1) {
         border-right: 0px;
         border-top-right-radius: 0px;
@@ -84,6 +74,7 @@ height: 72px;
     width: 460px;
     max-height: 500px;
     overflow-y: auto;
+    @media(max-width:992px){width: 100%;}
   }
   .map {
   flex: 1;
@@ -95,6 +86,12 @@ height: 72px;
   @media(max-width:1550px){
   width: calc((100vw - 507px) - ((100vw - 94vw) / 2));
   right: calc(0px - (100vw - 94vw) / 2);
+  }
+  @media(max-width:992px){
+    position: unset;
+    width: 100%;
+    height: 400px;
+    flex: unset;
   }
   }
   .submission-card {
