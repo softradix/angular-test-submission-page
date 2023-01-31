@@ -45,6 +45,7 @@ export class SubmissionsMapComponent implements OnInit, AfterViewInit {
         },
         options: {
           animation: google.maps.Animation.DROP,
+          icon: '../assets/img/marker-icon.png'
         },
       })
     });
