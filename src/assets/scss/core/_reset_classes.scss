@@ -41,7 +41,11 @@ a {
     font-size: 32px;
     font-weight: 700;
     color: var(--primary-text-color);
-    padding: 36px 0
+    padding: 36px 0;
+    @media(max-width:992px){
+        font-size: 26px;
+        padding: 26px 0;
+    }
 }
 
 .orange-text {
