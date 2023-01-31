@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+ul,
+li,
+a {
+    padding: 0;
+    text-decoration: none;
+    list-style: none
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+    margin: 0
+}
+
+a {
+    display: block
+}
+
+.container {
+    max-width: 1500px;
+    width: 94%;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.zendu_primary-bg {
+    background-color: var(--primary-bg-color)
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-text-color);
+    padding: 36px 0
+}
+
+.orange-text {
+    color: var(--duedate-orange-text-color) !important;
+    font-weight: 500 !important
+}
+
+input,select {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--primary-text-color);
+    outline: none !important;
+    box-shadow: none !important
+}
+
+.form-control:focus {
+    border-color: var(--primary-outline-color)
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

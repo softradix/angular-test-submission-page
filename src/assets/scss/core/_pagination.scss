@@ -1,0 +1,63 @@
+.row.paginator {
+    > div:nth-child(2) {
+        justify-content: flex-end;
+        display: flex;
+      }
+}
+.ngx-pagination {
+    li {
+        border: 1px solid var(--input-outline-color);
+        margin-right: 12px !important;
+        border-radius: var(--primary-border-radius) !important;
+        width: 32px;height: 32px;
+
+        &.current {
+            padding: 0.1875rem 0.625rem;
+            background: transparent;
+            color: var(--primary-bg-color);
+            cursor: default;
+            border-color: var(--primary-bg-color);
+        }
+    }
+    .pagination-previous,.pagination-next{position: relative;}
+    .pagination-previous{
+
+     a,&.disabled{
+        &::after{
+            content:"" !important;
+            background: url('../../img/left-arrow.png') no-repeat;
+            background-size: 100%;
+            position: absolute;
+            width: 10px;
+            height: 18px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);  
+        }
+        &::before{visibility: hidden;}
+     }
+     &.disabled{ background: #ECECED;border-color: #ECECED;
+    &:hover{background: #ECECED;border-color: #ECECED;}
+    }
+    }
+    .pagination-next{
+        
+        a,&.disabled{
+           &::before{
+               content:"" !important;
+               background: url('../../img/right-arrow.png') no-repeat;
+               background-size: 100%;
+               position: absolute;
+               width: 10px;
+               height: 18px;
+               left: 50%;
+               top: 50%;
+               transform: translate(-50%, -50%);  
+           }
+           &::after{visibility: hidden;}
+        }
+        &.disabled{ background: #ECECED;border-color: #ECECED;
+            &:hover{background: #ECECED;border-color: #ECECED;}
+        }
+       }
+}

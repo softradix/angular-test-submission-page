@@ -1,0 +1,121 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../src/assets/scss/variables/theme_color";
+@import "../src/assets/scss/core/reset_classes";
+@import "../src/assets/scss/core/forms";
+@import "../src/assets/scss/core/table_layout";
+@import "../src/assets/scss/core/pagination";
+@import "../src/assets/scss/core/buttons";
+  body {
+    font-family: var(--primary-font-family);
+    background: var(--body-bg-color);
+    figure {
+      margin: 0px;
+    }
+  }
+
+/* navbar */
+.nav-link {
+display: flex;
+align-items: center;
+cursor: pointer;
+
+h4 {
+font-size: 18px;
+font-weight: 500;
+color: var(--white-text-color);
+margin-left: 10px;
+}
+&.active,
+&:hover {
+background-color: var(--primary-bg-dark-color);
+}
+}
+
+.navbar-expand-lg {
+.navbar-brand {
+line-height: normal;
+}
+.navbar-nav {
+flex: 1;
+justify-content: center;
+
+.nav-link {
+padding: 0px 24px;
+height: 72px;
+}
+}
+}
+    
+  /* filters*/
+  .filter {
+    padding-bottom: 30px;
+  }
+
+  /* list view */
+  .listView-types {
+    button {
+      height: 48px;
+      width: 79px;
+      border: 2px solid var(--input-outline-color);
+      font-size: 16px;
+      font-weight: 400;
+      background: var(--primary-white-color);
+      border-radius: var(--primary-border-radius);
+      &:nth-child(1) {
+        border-right: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      &:nth-child(2) {
+        border-left: 0px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+      }
+      &.active {
+        background-color: var(--primary-bg-color);
+        color: #fff;
+        border-color: var(--primary-bg-color);
+      }
+    }
+  }
+
+  /* map */
+  .submissions-list {
+    width: 460px;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  .map {
+  flex: 1;
+  margin-bottom: 6px;
+  width: calc((100vw - 500px) - ((100vw - 1500px) / 2));
+  position: absolute;
+  right: calc(10px - (100vw - 1500px) / 2);
+  height: calc(100% - 10px);
+  @media(max-width:1550px){
+  width: calc((100vw - 507px) - ((100vw - 94vw) / 2));
+  right: calc(0px - (100vw - 94vw) / 2);
+  }
+  }
+  .submission-card {
+    padding: 12px;
+    border: 1px solid var(--input-outline-color);
+    border-radius: var(--primary-border-radius);
+    h3 {
+      font-size: 18px;
+      color: var(--primary-text-color);
+      font-weight: 700;
+    }
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--primary-text-color);
+      margin-top: 6px;
+      span {
+        color: #b8b9bc;
+        font-weight: 500;
+        margin-right: 8px;
+      }
+    }
+  }
+

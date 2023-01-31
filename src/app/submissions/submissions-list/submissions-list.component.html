@@ -1,0 +1,55 @@
+<div class="list">
+    <div class="table-responsive table-container">
+        <table class="w-100">
+            <tr>
+                <th>
+                    <label class="checkbox-container">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </th>
+                <th>Task</th>
+                <th>Status</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Customer Address</th>
+                <th>Due Date</th>
+            </tr>
+            <tr
+                *ngFor="let item of submissions_list | paginate: { itemsPerPage: pageSize, currentPage: currentPage }; let i = index">
+                <td>
+                    <label class="checkbox-container">
+                        <input id="typeChecked{{i}}" id="typeChecked{{i}}" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </td>
+                <td>{{item.task}}</td>
+                <td>
+                    <button *ngIf="item.status === '1'" class="low-risk status-btn d-flex align-items-center">
+                        <span class="me-2"></span>Low Risk
+                    </button>
+                    <button *ngIf="item.status === '2'" class="uncomplete status-btn d-flex align-items-center">
+                        <span class="me-2"></span>Uncomplete
+                    </button>
+                    <button *ngIf="item.status === '3'" class="unassigned status-btn d-flex align-items-center">
+                        <span class="me-2"></span>Unassigned
+                    </button>
+                </td>
+                <td>{{item.from}}</td>
+                <td>{{item.to}}</td>
+                <td>{{item.customer_address}}</td>
+                <td [ngClass]="item.status === '2' ? 'orange-text' : ''">{{item.due_date}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- pagination -->
+<div class="row paginator pt-5">
+    <div class="col-5 col-md-3 text-left">
+        {{currentPage}} - 10 of {{submissions_list.length}} submissions
+    </div>
+    <div class="col-7 col-md-9 d-flex justify-content-end">
+        <pagination-controls previousLabel="" nextLabel="" [responsive]="responsive"
+            (pageChange)="currentPage = $event"></pagination-controls>
+    </div>
+</div>

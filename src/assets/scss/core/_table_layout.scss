@@ -1,0 +1,87 @@
+.table-container {
+    background: var(--primary-white-color);
+    border: 1px solid var(--table-container-outline-color);
+    box-shadow: 0px 2px 10px rgba(6, 12, 27, 0.1);
+    border-radius: 8px;
+    table {
+      tr {
+        border-bottom: 1px solid var(--table-container-outline-color);
+
+        &:hover {
+          background-color: var(--table-row-hover-bg-color);
+          .checkbox-container {
+            display: block;
+          }
+        }
+
+        th {
+          font-size: 16px;
+          font-weight: 700;
+          color: var(--primary-text-color);
+        }
+
+        td {
+          font-size: 14px;
+          font-weight: 400;
+          color: var(--primary-text-color);
+          .checkbox-container {
+            display: none;
+            &:has(> input) {
+              background-color: red;
+            }
+          }
+        }
+
+        th,
+        td {
+          padding: 16px 10px;
+        }
+      }
+    }
+  }
+
+  /* status button */
+  .status-btn {
+    height: 32px;
+    padding: 0px 12px;
+    border: 1px solid transparent;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: var(--primary-border-radius);
+
+    span {
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: transparent;
+    }
+  }
+
+  .low-risk {
+    border-color: var(--status-low-risk-color);
+    background-color: var(--status-low-risk-bg-color);
+    color: var(--status-low-risk-color);
+
+    span {
+      background-color: var(--status-low-risk-color);
+    }
+  }
+  .uncomplete {
+    border-color: var(--status-uncomplete-color);
+    background-color: var(--status-uncomplete-bg-color);
+    color: var(--status-uncomplete-color);
+
+    span {
+      background-color: var(--status-uncomplete-color);
+    }
+  }
+  .unassigned {
+    border-color: var(--status-unassigned-color);
+    background-color: var(--status-unassigned-bg-color);
+    color: var(--status-unassigned-color);
+    
+    span {
+      background-color: var(--status-unassigned-color);
+    }
+  }

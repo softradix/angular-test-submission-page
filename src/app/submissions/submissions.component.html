@@ -1,0 +1,52 @@
+<div class="container">
+    <!-- main title-->
+    <h2 class="title">
+        Submissions
+    </h2>
+    <!-- filters -->
+    <div class="filter d-flex justify-content-md-between">
+        <form class="d-flex">
+            <div class="input-group search d-flex form-pr">
+                <span class="input-group-text" id="basic-addon1"><img src="../../assets/img/search-icon.svg"
+                        alt=""></span>
+                <input type="search" class="form-control" placeholder="Search...">
+            </div>
+            <div class="input-card form-pr">
+                <select class="form-control">
+                    <option>Select Form</option>
+                    <option value="zendu@zendu.com">zendu@zendu.com</option>
+                    <option value="tracy@zenduit.com">tracy@zenduit.com</option>
+                </select>
+            </div>
+            <div class="input-card form-pr">
+                <select class="form-control">
+                    <option>Select Status</option>
+                    <option value="1">Active</option>
+                    <option value="2">Inactive</option>
+                </select>
+            </div>
+            <div class="input-group date-control d-flex position-relative">
+                <span class="input-group-text" id="basic-addon1"><img src="../../../assets/img/calendar-icon.svg"
+                        alt=""></span>
+                <input type="date" class="form-control w-100%" required value="2020-12-24">
+            </div>
+        </form>
+        <!-- list view -->
+        <div class="addtional-features d-flex align-items-center">
+            <div class="listView-types d-flex">
+                <button [ngClass]="list_type === 1  ? 'active':''" (click)="listType(1)">Map</button>
+                <button [ngClass]="list_type === 2  ? 'active':''" (click)="listType(2)">List</button>
+            </div>
+            <button class="export-btn d-flex align-items-center ms-3">
+                <img src="../../assets/img/export-icon.svg" alt="export-icon" class="me-2">
+                Export
+            </button>
+        </div>
+    </div>
+
+    <!-- map list -->
+    <app-submissions-map *ngIf="list_type === 1" [submissions_list]="submissions_list"></app-submissions-map>
+
+    <!-- list -->
+    <app-submissions-list *ngIf="list_type === 2" [submissions_list]="submissions_list"></app-submissions-list>
+</div>
