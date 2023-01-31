@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 
 @Component({
   selector: 'app-submissions-map',
@@ -8,63 +8,72 @@ import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '
 })
 export class SubmissionsMapComponent implements OnInit, AfterViewInit {
 
-  // display: any;
-  // center: google.maps.LatLngLiteral = {
-  //     lat: 24,
-  //     lng: 12
-  // };
-  // zoom = 4;
+  @ViewChild('myGoogleMap', { static: false }) map!: GoogleMap;
+  @ViewChild(MapInfoWindow, { static: false }) info!: MapInfoWindow;
 
-  // @ViewChild('mapContainer') mapElement: any;
-  // map!: google.maps.Map;
+  zoom = 12;
+  center!: google.maps.LatLngLiteral;
+  options: google.maps.MapOptions = {
+    zoomControl: true,
+    scrollwheel: false,
+    disableDoubleClickZoom: true,
+    mapTypeId: 'hybrid',
 
-  @ViewChild('mapContainer', { static: false }) gmap!: ElementRef;
-
-  map!: google.maps.Map;
-
-  // lat = 28.704060;
-  // lng = 77.102493;
-  // coordinates = new google.maps.LatLng(this.lat, this.lng);
-  // mapOptions: google.maps.MapOptions = {
-  //   center: this.coordinates,
-  //   zoom: 8,
-  // };
-  // marker = new google.maps.Marker({
-  //   position: this.coordinates,
-  //   map: this.map,
-  // });
+  }
+  markers = []  as  any;
+  infoContent = '';
 
   @Input() submissions_list: any = [];
 
   constructor() { }
 
   ngOnInit(): void {
-//     const mapProperties = {
-//       center: new google.maps.LatLng(35.2271, -80.8431),
-//       zoom: 15,
-//       mapTypeId: google.maps.MapTypeId.ROADMAP
-//  };
-//  this.map = new google.maps.Map(this.mapElement.nativeElement,    mapProperties);
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.center = {
+        lat: parseFloat(this.submissions_list[0].latitude),
+        lng: parseFloat(this.submissions_list[0].longitude),
+      }
+    });
   }
 
   ngAfterViewInit() {
-    this.mapInitializer(this.submissions_list[0].latitude, this.submissions_list[0].longitude);
+    this.submissions_list.forEach((item: any) => {
+      this.markers.push({
+        position: {
+          lat: parseFloat(item.latitude),
+          lng: parseFloat(item.longitude),
+        },
+        options: {
+          animation: google.maps.Animation.DROP,
+        },
+      })
+    });
+  }
+  
+  eventHandler(event: any ,name:string){    
+    // Add marker on double click event
+    if(name === 'mapDblclick'){
+      this.dropMarker(event)
+    }
   }
 
-  mapInitializer(lat: number, lng: number) {
-   let coordinates = new google.maps.LatLng(lat, lng);
-   let mapOptions: google.maps.MapOptions = {
-      center: coordinates,
-      zoom: 8,
-    };
-    let marker = new google.maps.Marker({
-      position: coordinates,
-      map: this.map,
+  dropMarker(event:any) {
+    this.markers.push({
+      position: {         
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng(),
+      },
+      options: {
+        animation: google.maps.Animation.DROP,
+      },
     })
 
-    this.map = new google.maps.Map(this.gmap.nativeElement, mapOptions);
-
-    marker.setMap(this.map);
+     console.log(this.markers)
   }
 
+  openInfo(marker: MapMarker, content: string) {
+    this.infoContent = content;
+    this.info.open(marker)
+  }
+  
 }

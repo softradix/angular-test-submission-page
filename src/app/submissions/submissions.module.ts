@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { GoogleMapsModule } from '@angular/google-maps';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import { SubmissionsRoutingModule } from './submissions-routing.module';
@@ -19,8 +20,9 @@ import { SubmissionsMapComponent } from './submissions-map/submissions-map.compo
   imports: [
     CommonModule,
     FormsModule,
+    GoogleMapsModule,
     NgxPaginationModule,
-    SubmissionsRoutingModule
+    SubmissionsRoutingModule,
   ]
 })
 export class SubmissionsModule { }
