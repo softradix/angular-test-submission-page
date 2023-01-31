@@ -28,15 +28,16 @@ export class SubmissionsMapComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit(): void {
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.center = {
-        lat: parseFloat(this.submissions_list[0].latitude),
-        lng: parseFloat(this.submissions_list[0].longitude),
-      }
-    });
-  }
-
-  ngAfterViewInit() {
+    // navigator.geolocation.getCurrentPosition((position) => {
+    //   this.center = {
+    //     lat: parseFloat(this.submissions_list[0].latitude),
+    //     lng: parseFloat(this.submissions_list[0].longitude),
+    //   }
+    // });
+    this.center = {
+      lat: parseFloat(this.submissions_list[0].latitude),
+      lng: parseFloat(this.submissions_list[0].longitude),
+    }
     this.submissions_list.forEach((item: any) => {
       this.markers.push({
         position: {
@@ -50,8 +51,12 @@ export class SubmissionsMapComponent implements OnInit, AfterViewInit {
       })
     });
   }
+
+  ngAfterViewInit() {
+    this.eventHandler('','');
+  }
   
-  eventHandler(event: any ,name:string){    
+  eventHandler(event: any ,name:string){   
     // Add marker on double click event
     if(name === 'mapDblclick'){
       this.dropMarker(event)
@@ -73,6 +78,10 @@ export class SubmissionsMapComponent implements OnInit, AfterViewInit {
   openInfo(marker: MapMarker, content: string) {
     this.infoContent = content;
     this.info.open(marker)
+  }
+
+  logCenter() {
+    console.log(JSON.stringify(this.map.getCenter()))
   }
   
 }

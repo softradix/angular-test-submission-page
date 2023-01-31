@@ -26,7 +26,7 @@
                 (mapRightclick)="eventHandler($event,'mapRightclick')"
                 (positionChanged)="eventHandler($event,'marker_positionChanged')"
                 (zoomChanged)="eventHandler($event,'zoomChanged')">
-
+                
                 <map-marker #markerElem="mapMarker" *ngFor="let marker of markers" [position]="marker.position"
                     [label]="marker.label" [title]="marker.title" [options]="marker.options"
                     (mapClick)="openInfo(markerElem, marker.info)">
