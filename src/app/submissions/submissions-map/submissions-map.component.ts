@@ -17,7 +17,7 @@ export class SubmissionsMapComponent implements OnInit, AfterViewInit {
     zoomControl: true,
     scrollwheel: false,
     disableDoubleClickZoom: true,
-    mapTypeId: 'hybrid',
+    mapTypeId: google.maps.MapTypeId.ROADMAP
 
   }
   markers = []  as  any;
